@@ -35,6 +35,7 @@
     function postJson() {
         request = ajaxme.post({
             url: 'http://demo0350534.mockable.io/post',
+            json:true,
             data: {
                 hello:'Hi'
             },

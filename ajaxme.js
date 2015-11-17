@@ -75,9 +75,16 @@
     };
 
     AjaxMe.prototype.post = function(options) {
+        var request = new XMLHttpRequest(),
+            contentType = 'application/x-www-form-urlencoded';
+
+        if (options.json) {
+            contentType = 'application/json';
+        }
+
         var request = new XMLHttpRequest();
         request.open('POST', options.url, true);
-        request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        request.setRequestHeader('Content-Type', contentType + '; charset=UTF-8');
         request.send(options.data);
 
         addCallBacks(request, options);
