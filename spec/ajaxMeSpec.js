@@ -12,7 +12,7 @@ describe('.get() Test', function() {
     it("returns status code 200", function() {
 
         AjaxMe.get({
-            url: 'data.json',
+            url: base_url + 'data.json',
             success: function() {
                 console.log('success', arguments);
             },
@@ -43,7 +43,7 @@ describe('.post() Test', function() {
     it("returns status code 200", function() {
 
         AjaxMe.post({
-            url: '/post',
+            url: base_url + 'post',
             data: 'username=Ion&senha=12456',
             success: function() {
                 console.log('success', arguments);
