@@ -1,4 +1,4 @@
-var base_url = "http://localhost:8080/";
+var base_url = "http://0:8080/";
 
 function setUpHTMLFixture() {
     loadFixtures('../../../index.html');
@@ -10,11 +10,13 @@ describe('.get() Test', function() {
     });
 
     it("returns status code 200", function() {
-
-        AjaxMe.get({
+        var ajaxme = AjaxMe;
+        var success = false;
+        var request = ajaxme.get({
             url: base_url + 'data.json',
             success: function() {
                 console.log('success', arguments);
+                success = true;
             },
             error: function() {
                 console.log('error', arguments);
@@ -32,6 +34,8 @@ describe('.get() Test', function() {
                 console.log('progress', evt.percent);
             }
         });
+
+        expect(success).toEqual(true);
     });
 });
 
@@ -41,11 +45,13 @@ describe('.post() Test', function() {
     });
 
     it("returns status code 200", function() {
-
-        AjaxMe.post({
+        var ajaxme = AjaxMe;
+        var success = false;
+        var request = ajaxme.post({
             url: base_url + 'post',
             data: 'username=Ion&senha=12456',
             success: function() {
+                success = true;
                 console.log('success', arguments);
             },
             error: function() {
@@ -64,5 +70,7 @@ describe('.post() Test', function() {
                 console.log('progress', evt.percent);
             }
         });
+
+        expect(success).toEqual(true);
     });
 });
