@@ -102,9 +102,6 @@
         request.setRequestHeader('Content-Type', contentType + '; charset=UTF-8');
         request.send(options.data);
 
-        formData = new FormData();
-        formData.append("upload", file.files[0]);
-
         addCallBacks(request, options);
 
         return request;

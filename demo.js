@@ -34,12 +34,14 @@
     };
 
     function postJson() {
+        var form = $$('form').elmts[0],
+            formData = new FormData(form);
+
+        formData.append("username", "Groucho");
+        formData.append("accountnum", 123456);
         request = ajaxme.post({
-            url: $$('form').getAttr('action'),
-            json:true,
-            data: {
-                hello:'Hi'
-            },
+            url: '/post',
+            data: 'username=Ion&senha=12456',
             success: function() {
                 console.log('success', arguments);
             },
@@ -64,8 +66,10 @@
     function submitForm() {
         request = ajaxme.post({
             url: $$('form').getAttr('action'),
-            json:true,
-            data: JSON.stringify({hello:'hello'}),
+            json: true,
+            data: JSON.stringify({
+                hello: 'hello'
+            }),
             success: function() {
                 console.log('success', arguments);
             },
@@ -100,7 +104,7 @@
         request.abort();
     });
 
-    btnSubmitForm.on('click', function(evt){
+    btnSubmitForm.on('click', function(evt) {
         submitForm();
         evt.preventDefault()
     });
