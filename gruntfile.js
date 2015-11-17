@@ -4,6 +4,15 @@ module.exports = function(grunt) {
     });
 
     grunt.initConfig({
+        express: {
+            options: {
+            },
+            dev: {
+                options: {
+                    script: 'server.js'
+                }
+            }
+        },
         connect: {
             server: {
                 options: {
@@ -35,6 +44,13 @@ module.exports = function(grunt) {
                 spawn: false,
                 reload: true,
                 livereload: true
+            },
+            express: {
+                files: ['**/*.js'],
+                tasks: ['express:dev'],
+                options: {
+                    spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
+                }
             },
             scripts: {
                 files: ['ajaxme.js', 'gruntfile.js', 'demo.js'],
@@ -94,8 +110,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-express-server');
 
     grunt.registerTask('test', ['jasmine', 'coveralls']);
-    grunt.registerTask('default', ['connect', 'watch']);
+    grunt.registerTask('default', ['express:dev', 'watch']);
 
 };

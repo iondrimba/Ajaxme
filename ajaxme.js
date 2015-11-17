@@ -92,6 +92,24 @@
         return request;
     };
 
+    AjaxMe.prototype.upload = function(options) {
+        var request = new XMLHttpRequest(),
+            contentType = 'multipart/form-data',
+            formData;
+
+        var request = new XMLHttpRequest();
+        request.open('POST', options.url, true);
+        request.setRequestHeader('Content-Type', contentType + '; charset=UTF-8');
+        request.send(options.data);
+
+        formData = new FormData();
+        formData.append("upload", file.files[0]);
+
+        addCallBacks(request, options);
+
+        return request;
+    };
+
     AjaxMe.prototype.get = function(options) {
         var request = new XMLHttpRequest();
         request.open('GET', options.url, true);
