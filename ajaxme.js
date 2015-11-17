@@ -14,23 +14,6 @@
 }(this, function() {
     'use strict';
 
-    function parseHTML(html) {
-        var t = document.createElement('template'),
-            content,
-            nodes;
-
-        t.innerHTML = html;
-        content = t.content || t.firstChild;
-        nodes = content.cloneNode(true);
-
-        return nodes;
-    }
-
-    function isString(selector) {
-        var result = (typeof selector === 'string');
-        return result;
-    };
-
     function addCallBacks(request, options) {
         request.onload = function onload(evt) {
             if (request.status >= 200 && request.status < 400) {
@@ -70,6 +53,12 @@
         };
     };
 
+    function setupRequest(request) {
+        request.open('POST', options.url, true);
+        request.setRequestHeader('Content-Type', contentType + '; charset=UTF-8');
+        request.send(options.data);
+    };
+
     function AjaxMe() {
 
     };
@@ -83,9 +72,8 @@
         }
 
         var request = new XMLHttpRequest();
-        request.open('POST', options.url, true);
-        request.setRequestHeader('Content-Type', contentType + '; charset=UTF-8');
-        request.send(options.data);
+
+        setupRequest(request);
 
         addCallBacks(request, options);
 
@@ -98,9 +86,8 @@
             formData;
 
         var request = new XMLHttpRequest();
-        request.open('POST', options.url, true);
-        request.setRequestHeader('Content-Type', contentType + '; charset=UTF-8');
-        request.send(options.data);
+
+        setupRequest(request);
 
         addCallBacks(request, options);
 
