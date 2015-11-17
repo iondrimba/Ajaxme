@@ -37,7 +37,7 @@ module.exports = function(grunt) {
                 livereload: true
             },
             scripts: {
-                files: ['ajaxme.js', 'gruntfile.js'],
+                files: ['ajaxme.js', 'gruntfile.js', 'demo.js'],
                 tasks: ['eslint', 'uglify']
             },
             html: {

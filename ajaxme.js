@@ -31,40 +31,64 @@
         return result;
     };
 
+    function addCallBacks(request, options) {
+        request.onload = function onload(evt) {
+            if (request.status >= 200 && request.status < 400) {
+                options.success(request);
+            } else {
+                options.error(evt);
+            }
+        };
+
+        request.onerror = function(evt) {
+            options.error(evt);
+        };
+        request.onabort = function(evt) {
+            if (options.abort) {
+                options.abort(evt);
+            }
+        };
+        request.onloadend = function(evt) {
+            if (options.loadend) {
+                options.loadend(evt);
+            }
+        };
+        request.onloadstart = function(evt) {
+            if (options.loadstart) {
+                options.loadstart(evt);
+            }
+        };
+        request.onprogress = function(evt) {
+            if (options.progress) {
+                options.progress(evt);
+            }
+        };
+    };
+
     function AjaxMe() {
-        
+
     };
 
     AjaxMe.prototype.post = function(options) {
         var request = new XMLHttpRequest();
         request.open('POST', options.url, true);
         request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-        request.send(data);
-        request.onload = function onload (evt) {
-            console.log('post onload', evt);
-        };
+        request.send(options.data);
+
+        addCallBacks(request, options);
+
+        return request;
     };
 
     AjaxMe.prototype.get = function(options) {
         var request = new XMLHttpRequest();
         request.open('GET', options.url, true);
 
-        request.onload = function onload(evt) {
-                console.log('get onload', evt);
-            if (request.status >= 200 && request.status < 400) {
-                // Success!
-                var resp = request.responseText;
-            } else {
-                // We reached our target server, but it returned an error
-
-            }
-        };
-
-        request.onerror = function() {
-            // There was a connection error of some sort
-        };
+        addCallBacks(request, options);
 
         request.send();
+
+        return request;
     };
 
     return new AjaxMe();
