@@ -26,8 +26,8 @@
             loadstart: function() {
                 console.log('loadstart', arguments);
             },
-            progress: function() {
-                console.log('progress', arguments);
+            progress: function(evt) {
+                console.log('progress', evt.percent);
             }
         });
     };
@@ -53,8 +53,8 @@
             loadstart: function() {
                 console.log('loadstart', arguments);
             },
-            progress: function() {
-                console.log('progress', arguments);
+            progress: function(evt) {
+                console.log('progress', evt.percent);
             }
         });
     };

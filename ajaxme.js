@@ -59,7 +59,12 @@
             }
         };
         request.onprogress = function(evt) {
+            var percentComplete = 0;
             if (options.progress) {
+                if (evt.lengthComputable) {
+                    percentComplete = evt.loaded / evt.total;
+                }
+                evt['percent'] = percentComplete;
                 options.progress(evt);
             }
         };
