@@ -5,8 +5,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         express: {
-            options: {
-            },
+            options: {},
             dev: {
                 options: {
                     script: 'server.js'
@@ -45,7 +44,7 @@ module.exports = function(grunt) {
                 reload: true,
                 livereload: true
             },
-            
+
             scripts: {
                 files: ['ajaxme.js', 'gruntfile.js', 'demo.js'],
                 tasks: ['eslint', 'uglify']

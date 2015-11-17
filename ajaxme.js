@@ -53,9 +53,9 @@
         };
     };
 
-    function setupRequest(request) {
+    function setupRequest(request, options) {
         request.open('POST', options.url, true);
-        request.setRequestHeader('Content-Type', contentType + '; charset=UTF-8');
+        request.setRequestHeader('Content-Type', options.contentType + '; charset=UTF-8');
         request.send(options.data);
     };
 
@@ -73,7 +73,9 @@
 
         var request = new XMLHttpRequest();
 
-        setupRequest(request);
+        options['contentType'] = contentType;
+
+        setupRequest(request, options);
 
         addCallBacks(request, options);
 
@@ -87,7 +89,8 @@
 
         var request = new XMLHttpRequest();
 
-        setupRequest(request);
+        options['contentType'] = contentType;
+        setupRequest(request, options);
 
         addCallBacks(request, options);
 

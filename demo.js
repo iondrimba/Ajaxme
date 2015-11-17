@@ -1,6 +1,5 @@
 ;
 (function() {
-    console.log('DEMO', AjaxMe);
     var $$ = NoJQuery,
         ajaxme = AjaxMe,
         btnPost = $$('.btn-post'),
@@ -34,11 +33,6 @@
     };
 
     function postJson() {
-        var form = $$('form').elmts[0],
-            formData = new FormData(form);
-
-        formData.append("username", "Groucho");
-        formData.append("accountnum", 123456);
         request = ajaxme.post({
             url: '/post',
             data: 'username=Ion&senha=12456',
