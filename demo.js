@@ -63,11 +63,9 @@
 
     function submitForm() {
         request = ajaxme.post({
-            url: 'http://localhost:9000/upload',
+            url: $$('form').getAttr('action'),
             json:true,
-            data: {
-                hello:'Hi'
-            },
+            data: JSON.stringify({hello:'hello'}),
             success: function() {
                 console.log('success', arguments);
             },
@@ -102,8 +100,9 @@
         request.abort();
     });
 
-    btnSubmitForm.on('click', function(){
+    btnSubmitForm.on('click', function(evt){
         submitForm();
+        evt.preventDefault()
     });
 
 }());

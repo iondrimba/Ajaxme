@@ -45,13 +45,7 @@ module.exports = function(grunt) {
                 reload: true,
                 livereload: true
             },
-            express: {
-                files: ['**/*.js'],
-                tasks: ['express:dev'],
-                options: {
-                    spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
-                }
-            },
+            
             scripts: {
                 files: ['ajaxme.js', 'gruntfile.js', 'demo.js'],
                 tasks: ['eslint', 'uglify']
