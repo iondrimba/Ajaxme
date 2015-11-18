@@ -106,7 +106,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-express-server');
 
-    grunt.registerTask('test', ['express:dev','jasmine', 'converalls']);
+    grunt.registerTask('test', ['express:dev','jasmine', 'coveralls']);
     grunt.registerTask('default', ['express:dev', 'watch']);
 
 };
