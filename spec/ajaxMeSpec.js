@@ -1,76 +1,91 @@
-var base_url = "http://0:8080/";
+var base_url = "http://localhost:8080/";
 
 function setUpHTMLFixture() {
-    loadFixtures('../../../index.html');
+   // loadFixtures('../../../index.html');
 };
 
 describe('.get() Test', function() {
     beforeEach(function() {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
         setUpHTMLFixture();
     });
 
-    it("returns status code 200", function() {
-        var ajaxme = AjaxMe;
-        var success = false;
-        var request = ajaxme.get({
-            url: base_url + 'data.json',
+    it("returns status code 200", function(done) {
+        var ajaxme = AjaxMe,
+            success = false,
+            request;
+
+        request = ajaxme.get({
+            url: 'data.json',
             success: function() {
                 console.log('success', arguments);
                 success = true;
+                expect(success).toEqual(true);
+                done();
             },
-            error: function() {
-                console.log('error', arguments);
+            error: function(evt) {
+                console.log('error', evt);
+                request.abort();
+                done();
             },
             abort: function() {
                 console.log('abort', arguments);
             },
             loadend: function() {
                 console.log('loadend', arguments);
+
             },
-            loadstart: function() {
-                console.log('loadstart', arguments);
+            loadstart: function(evt) {
+                console.log('loadstart', evt);
             },
             progress: function(evt) {
                 console.log('progress', evt.percent);
             }
         });
-
-        expect(success).toEqual(true);
     });
 });
 
 describe('.post() Test', function() {
     beforeEach(function() {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
         setUpHTMLFixture();
     });
 
-    it("returns status code 200", function() {
-        var ajaxme = AjaxMe;
-        var success = false;
-        var request = ajaxme.post({
-            url: base_url + 'post',
+    it("returns status code 200", function(done) {
+        var ajaxme = AjaxMe,
+            success = false,
+            request;
+
+        request = ajaxme.post({
+            url:  base_url + 'post',
             data: 'username=Ion&senha=12456',
             success: function() {
-                success = true;
                 console.log('success', arguments);
+                success = true;
+                expect(success).toEqual(true);
+                done();
             },
-            error: function() {
-                console.log('error', arguments);
+            error: function(evt) {
+                console.log('error', evt);
+                request.abort();
+                done();
             },
             abort: function() {
                 console.log('abort', arguments);
+                expect(success).toEqual(true);
+                done();
             },
             loadend: function() {
                 console.log('loadend', arguments);
+
             },
-            loadstart: function() {
-                console.log('loadstart', arguments);
+            loadstart: function(evt) {
+                console.log('loadstart', evt);
             },
             progress: function(evt) {
                 console.log('progress', evt.percent);
             }
         });
-
-        expect(success).toEqual(true);
     });
+
 });

@@ -57,28 +57,29 @@ module.exports = function(grunt) {
             target: ['ajaxme.js', 'gruntfile.js']
         },
         jasmine: {
-            src: 'ajaxme.js',
+            src: './ajaxme.js',
             options: {
                 specs: 'spec/*.js',
                 vendor: 'spec/vendors/jquery.js',
-                helpers: 'spec/vendors/jasmine-jquery.js'
+                helpers: 'spec/vendors/jasmine-jquery.js',
+                host : 'http://localhost:8080/'
             },
-            coverage: {
-                src: ['ajaxme.js'],
-                options: {
-                    specs: ['spec/*.js'],
-                    template: require('grunt-template-jasmine-istanbul'),
-                    templateOptions: {
-                        coverage: 'bin/coverage/coverage.json',
-                        report: {
-                            type: 'lcov',
-                            options: {
-                                dir: 'bin/coverage/lcov'
-                            }
-                        }
-                    }
-                }
-            }
+            // coverage: {
+            //     src: ['./ajaxme.js'],
+            //     options: {
+            //         specs: ['spec/*.js'],
+            //         template: require('grunt-template-jasmine-istanbul'),
+            //         templateOptions: {
+            //             coverage: 'bin/coverage/coverage.json',
+            //             report: {
+            //                 type: 'lcov',
+            //                 options: {
+            //                     dir: 'bin/coverage/lcov'
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
         },
         coveralls: {
             // Options relevant to all targets
@@ -105,7 +106,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-express-server');
 
-    grunt.registerTask('test', ['express:dev','jasmine', 'coveralls']);
+    grunt.registerTask('test', ['express:dev','jasmine']);
     grunt.registerTask('default', ['express:dev', 'watch']);
 
 };

@@ -9,7 +9,7 @@ app.get('/', function(req, res) {
 });
 
 
-var jsonParser = bodyParser.json()
+var jsonParser = bodyParser.json();
 
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({
@@ -18,17 +18,17 @@ var urlencodedParser = bodyParser.urlencoded({
 
 // POST /login gets urlencoded bodies
 app.post('/post', urlencodedParser, function(request, response) {
-    console.log('post', request.body.senha);
-    if (!request.body) return response.sendStatus(400)
+
+    if (!request.body) return response.sendStatus(200)
     response.send('welcome, ' + request.body.username)
 })
 
 // POST /api/users gets JSON bodies
 app.post('/json', jsonParser, function(request, response) {
-    console.log('json', request.body);
+
     response.end('yes');
 
-    if (!request.body) return response.sendStatus(400)
+    if (!request.body) return response.sendStatus(200)
         // create user in req.body
 })
 
