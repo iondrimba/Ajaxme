@@ -117,7 +117,7 @@ describe('.succes() Error Test', function() {
     it("should return status 500", function(done) {
         var ajaxme = AjaxMe,
             success = false,
-            started = false,
+            error = false,
             request;
 
         request = ajaxme.post({
@@ -126,7 +126,11 @@ describe('.succes() Error Test', function() {
             success: function(data) {
                 success = (data.status == 500);
                 expect(success).toEqual(true);
+                expect(error).toEqual(true);
                 done();
+            },
+            error: function(data) {
+                error = true;
             }
         });
     });

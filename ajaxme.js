@@ -16,7 +16,7 @@
 
     function addCallBacks(request, options) {
         request.onload = function onload(evt) {
-            if (request.status >= 200 && request.status < 400 || request.responseText) {
+            if (request.status >= 200 && request.status < 400 ) {
                 options.success(request);
             } else {
                 options.error(evt);
