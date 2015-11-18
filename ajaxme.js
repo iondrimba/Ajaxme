@@ -19,7 +19,7 @@
             if (request.status >= 200 && request.status < 400 ) {
                 options.success(request);
             } else {
-                options.error(evt);
+                request.onerror(evt);
             }
         };
         request.onerror = function(evt) {
