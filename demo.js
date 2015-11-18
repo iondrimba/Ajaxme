@@ -32,7 +32,7 @@
         });
     };
 
-    function postJson() {
+    function post() {
         request = ajaxme.post({
             url: '/post',
             data: 'username=Ion&senha=12456',
@@ -62,10 +62,11 @@
             url: $$('form').getAttr('action'),
             json: true,
             data: JSON.stringify({
-                hello: 'hello'
+                username: 'Ion',
+                password: '12346'
             }),
-            success: function() {
-                console.log('success', arguments);
+            success: function(data) {
+                console.log('success', data);
             },
             error: function() {
                 console.log('error', arguments);
@@ -87,7 +88,7 @@
 
     btnPost.on('click', function post(evt) {
         console.log('click post');
-        postJson();
+        post();
     });
     btnGet.on('click', function get(evt) {
         console.log('click get');

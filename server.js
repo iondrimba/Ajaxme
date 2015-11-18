@@ -26,11 +26,9 @@ app.post('/post', urlencodedParser, function(request, response) {
 // POST /api/users gets JSON bodies
 app.post('/json', jsonParser, function(request, response) {
 
-    response.end('yes');
 
     if (!request.body) return response.sendStatus(200)
-        // create user in req.body
-})
-
+    response.send('welcome, ' + request.body.username)
+});
 app.listen(8080);
 console.log('Express started at :8080');

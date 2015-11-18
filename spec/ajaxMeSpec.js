@@ -1,7 +1,7 @@
 var base_url = "http://localhost:8080/";
 
 function setUpHTMLFixture() {
-   // loadFixtures('../../../index.html');
+    // loadFixtures('../../../index.html');
 };
 
 describe('.get() Test', function() {
@@ -18,7 +18,7 @@ describe('.get() Test', function() {
         request = ajaxme.get({
             url: 'data.json',
             success: function(data) {
-                success = (data.status==200);
+                success = (data.status == 200);
                 expect(success).toEqual(true);
                 done();
             }
@@ -38,11 +38,40 @@ describe('.post() Test', function() {
             request;
 
         request = ajaxme.post({
-            url:  base_url + 'post',
+            url: base_url + 'post',
             data: 'username=Ion&senha=12456',
             success: function(data) {
-                success = (data.status==200);
+                success = (data.status == 200);
                 expect(success).toEqual(true);
+                done();
+            }
+        });
+    });
+
+});
+
+describe('.post() JSON Test', function() {
+    beforeEach(function() {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
+        setUpHTMLFixture();
+    });
+
+    it("should return status code 200", function(done) {
+        var ajaxme = AjaxMe,
+            success = false,
+            request;
+
+        request = ajaxme.post({
+            url: base_url + 'json',
+            json: true,
+            data: JSON.stringify({
+                username: 'Ion',
+                password: '12346'
+            }),
+            success: function(data) {
+                success = (data.status == 200);
+                expect(success).toEqual(true);
+                expect(data.responseText).toEqual('welcome, Ion');
                 done();
             }
         });

@@ -83,22 +83,6 @@
         return request;
     };
 
-    AjaxMe.prototype.upload = function(options) {
-        var request = new XMLHttpRequest(),
-            contentType = 'multipart/form-data',
-            formData;
-
-        var request = new XMLHttpRequest();
-
-        options['contentType'] = contentType;
-
-        setupRequest(request, options);
-
-        addCallBacks(request, options);
-
-        return request;
-    };
-
     AjaxMe.prototype.get = function(options) {
         var request = new XMLHttpRequest();
 
