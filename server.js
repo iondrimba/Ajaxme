@@ -26,5 +26,11 @@ app.post('/json', jsonParser, function(request, response) {
     if (!request.body) return response.sendStatus(200)
     response.send('welcome, ' + request.body.username)
 });
+
+// POST /api/users gets JSON bodies
+app.post('/successerror', jsonParser, function(request, response) {
+    return response.sendStatus(500);
+});
+
 app.listen(8080);
 console.log('Express started at :8080');

@@ -107,3 +107,28 @@ describe('.loadstart() Test', function() {
     });
 
 });
+
+describe('.succes() Error Test', function() {
+    beforeEach(function() {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
+        setUpHTMLFixture();
+    });
+
+    it("should return status 500", function(done) {
+        var ajaxme = AjaxMe,
+            success = false,
+            started = false,
+            request;
+
+        request = ajaxme.post({
+            url: base_url + 'successerror',
+            data: 'username=Ion&senha=12456',
+            success: function(data) {
+                success = (data.status == 500);
+                expect(success).toEqual(true);
+                done();
+            }
+        });
+    });
+
+});

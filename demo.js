@@ -6,6 +6,7 @@
         btnGet = $$('.btn-get'),
         btnAbort = $$('.btn-abort'),
         btnSubmitForm = $$('.btn-form-submit'),
+        btnSuccessError = $$('.btn-success-error'),
         request;
 
     function loadJson() {
@@ -86,6 +87,21 @@
         });
     };
 
+    function successWithError() {
+        request = ajaxme.post({
+            url: 'successerror',
+            json: true,
+            data: JSON.stringify({
+                username: 'Ion',
+                password: '12346'
+            }),
+            success: function(data) {
+                console.log('success', data);
+            }
+        });
+    };
+
+
     btnPost.on('click', function post(evt) {
         console.log('click post');
         post();
@@ -101,6 +117,11 @@
 
     btnSubmitForm.on('click', function(evt) {
         submitForm();
+        evt.preventDefault()
+    });
+
+    btnSuccessError.on('click', function(evt) {
+        successWithError();
         evt.preventDefault()
     });
 
