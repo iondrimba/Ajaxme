@@ -2,6 +2,6 @@ sudo: false
 language: node_js
 before_script:
   - npm install -g grunt grunt-cli
-script: grunt test
+script: grunt travis
 after_script:
 - grunt coveralls
