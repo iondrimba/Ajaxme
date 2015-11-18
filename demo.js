@@ -36,8 +36,8 @@
         request = ajaxme.post({
             url: '/post',
             data: 'username=Ion&senha=12456',
-            success: function() {
-                console.log('success', arguments);
+            success: function(data) {
+                console.log('success', data.status);
             },
             error: function() {
                 console.log('error', arguments);

@@ -10,36 +10,17 @@ describe('.get() Test', function() {
         setUpHTMLFixture();
     });
 
-    it("returns status code 200", function(done) {
+    it("should return status code 200", function(done) {
         var ajaxme = AjaxMe,
             success = false,
             request;
 
         request = ajaxme.get({
             url: 'data.json',
-            success: function() {
-                console.log('success', arguments);
-                success = true;
+            success: function(data) {
+                success = (data.status==200);
                 expect(success).toEqual(true);
                 done();
-            },
-            error: function(evt) {
-                console.log('error', evt);
-                request.abort();
-                done();
-            },
-            abort: function() {
-                console.log('abort', arguments);
-            },
-            loadend: function() {
-                console.log('loadend', arguments);
-
-            },
-            loadstart: function(evt) {
-                console.log('loadstart', evt);
-            },
-            progress: function(evt) {
-                console.log('progress', evt.percent);
             }
         });
     });
@@ -51,7 +32,7 @@ describe('.post() Test', function() {
         setUpHTMLFixture();
     });
 
-    it("returns status code 200", function(done) {
+    it("should return status code 200", function(done) {
         var ajaxme = AjaxMe,
             success = false,
             request;
@@ -59,31 +40,10 @@ describe('.post() Test', function() {
         request = ajaxme.post({
             url:  base_url + 'post',
             data: 'username=Ion&senha=12456',
-            success: function() {
-                console.log('success', arguments);
-                success = true;
+            success: function(data) {
+                success = (data.status==200);
                 expect(success).toEqual(true);
                 done();
-            },
-            error: function(evt) {
-                console.log('error', evt);
-                request.abort();
-                done();
-            },
-            abort: function() {
-                console.log('abort', arguments);
-                expect(success).toEqual(true);
-                done();
-            },
-            loadend: function() {
-                console.log('loadend', arguments);
-
-            },
-            loadstart: function(evt) {
-                console.log('loadstart', evt);
-            },
-            progress: function(evt) {
-                console.log('progress', evt.percent);
             }
         });
     });
