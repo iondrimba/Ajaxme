@@ -56,7 +56,7 @@ describe('.post() JSON Test', function() {
         setUpHTMLFixture();
     });
 
-    it("should return status code 200", function(done) {
+    it("should match responseText with 'welcome, Ion'", function(done) {
         var ajaxme = AjaxMe,
             success = false,
             request;
@@ -73,6 +73,35 @@ describe('.post() JSON Test', function() {
                 expect(success).toEqual(true);
                 expect(data.responseText).toEqual('welcome, Ion');
                 done();
+            }
+        });
+    });
+
+});
+
+describe('.loadstart() Test', function() {
+    beforeEach(function() {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
+        setUpHTMLFixture();
+    });
+
+    it("variable started should be true", function(done) {
+        var ajaxme = AjaxMe,
+            success = false,
+            started = false,
+            request;
+
+        request = ajaxme.post({
+            url: base_url + 'post',
+            data: 'username=Ion&senha=12456',
+            success: function(data) {
+                success = (data.status == 200);
+                expect(started).toEqual(true);
+                expect(success).toEqual(true);
+                done();
+            },
+            loadstart: function() {
+                started = true;
             }
         });
     });
