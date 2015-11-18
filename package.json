@@ -4,7 +4,7 @@
   "description": "Lightweight Ajax helper",
   "main": "ajaxme.js",
   "scripts": {
-    "test": "grunt travis"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
