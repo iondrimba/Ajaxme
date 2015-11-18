@@ -89,7 +89,7 @@
 
     function successWithError() {
         request = ajaxme.post({
-            url: 'successerror',
+            url: 'error',
             json: true,
             data: JSON.stringify({
                 username: 'Ion',
@@ -97,6 +97,9 @@
             }),
             success: function(data) {
                 console.log('success', data);
+            },
+            error: function(data) {
+                console.log('error', data);
             }
         });
     };

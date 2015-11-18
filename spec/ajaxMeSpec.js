@@ -116,21 +116,19 @@ describe('.succes() Error Test', function() {
 
     it("should return status 500", function(done) {
         var ajaxme = AjaxMe,
-            success = false,
             error = false,
             request;
 
         request = ajaxme.post({
-            url: base_url + 'successerror',
+            url: base_url + 'error',
             data: 'username=Ion&senha=12456',
             success: function(data) {
-                success = (data.status == 500);
-                expect(success).toEqual(true);
-                expect(error).toEqual(true);
-                done();
+                
             },
             error: function(data) {
-                error = true;
+                error = (data.status !==200);
+                expect(error).toEqual(true);
+                done();
             }
         });
     });

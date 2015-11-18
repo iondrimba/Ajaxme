@@ -28,8 +28,8 @@ app.post('/json', jsonParser, function(request, response) {
 });
 
 // POST /api/users gets JSON bodies
-app.post('/successerror', jsonParser, function(request, response) {
-    return response.sendStatus(500);
+app.post('/error', urlencodedParser, function(request, response) {
+    return response.sendStatus(-1)
 });
 
 app.listen(8080);
