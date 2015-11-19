@@ -41,9 +41,6 @@ ajaxme.get({
     abort: function() {//OPTIONAL
         console.log('abort', arguments);
     },
-    loadend: function() {//OPTIONAL
-        console.log('loadend', arguments);
-    },
     loadstart: function() {//OPTIONAL
         console.log('loadstart', arguments);
     },
@@ -67,9 +64,6 @@ ajaxme.post({
     },
     abort: function() {//OPTIONAL
         console.log('abort', arguments);
-    },
-    loadend: function() {//OPTIONAL
-        console.log('loadend', arguments);
     },
     loadstart: function() {//OPTIONAL
         console.log('loadstart', arguments);
