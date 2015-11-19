@@ -1,14 +1,8 @@
 var base_url = "http://localhost:8080/";
 
-function setUpHTMLFixture() {
-    // loadFixtures('../../../index.html');
-};
+
 
 describe('.get() Test', function() {
-    beforeEach(function() {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
-        setUpHTMLFixture();
-    });
 
     it("should return status code 200", function(done) {
         var ajaxme = AjaxMe,
@@ -27,10 +21,6 @@ describe('.get() Test', function() {
 });
 
 describe('.post() Test', function() {
-    beforeEach(function() {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
-        setUpHTMLFixture();
-    });
 
     it("should return status code 200", function(done) {
         var ajaxme = AjaxMe,
@@ -51,10 +41,6 @@ describe('.post() Test', function() {
 });
 
 describe('.post() JSON Test', function() {
-    beforeEach(function() {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
-        setUpHTMLFixture();
-    });
 
     it("should match responseText with 'welcome, Ion'", function(done) {
         var ajaxme = AjaxMe,
@@ -80,10 +66,6 @@ describe('.post() JSON Test', function() {
 });
 
 describe('.loadstart() Test', function() {
-    beforeEach(function() {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
-        setUpHTMLFixture();
-    });
 
     it("variable started should be true", function(done) {
         var ajaxme = AjaxMe,
@@ -109,10 +91,7 @@ describe('.loadstart() Test', function() {
 });
 
 describe('.succes() Error Test', function() {
-    beforeEach(function() {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
-        setUpHTMLFixture();
-    });
+
 
     it("should return status 500", function(done) {
         var ajaxme = AjaxMe,
@@ -123,10 +102,10 @@ describe('.succes() Error Test', function() {
             url: base_url + 'error',
             data: 'username=Ion&senha=12456',
             success: function(data) {
-                
+
             },
             error: function(data) {
-                error = (data.status !==200);
+                error = (data.status !== 200);
                 expect(error).toEqual(true);
                 done();
             }
