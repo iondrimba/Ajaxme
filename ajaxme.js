@@ -32,11 +32,6 @@
                 options.abort(evt);
             }
         };
-        request.onloadend = function(evt) {
-            if (options.loadend) {
-                options.loadend(evt);
-            }
-        };
         request.onloadstart = function(evt) {
             if (options.loadstart) {
                 options.loadstart(evt);

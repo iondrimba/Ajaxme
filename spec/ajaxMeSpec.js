@@ -101,9 +101,6 @@ describe('.succes() Error Test', function() {
         request = ajaxme.post({
             url: base_url + 'error',
             data: 'username=Ion&senha=12456',
-            success: function(data) {
-
-            },
             error: function(data) {
                 error = (data.status !== 200);
                 expect(error).toEqual(true);
