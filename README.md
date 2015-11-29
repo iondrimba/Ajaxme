@@ -72,7 +72,7 @@ ajaxme.post({
         console.log('progress', evt.percent);
     }
 });
-
+```
 
 ##### post JSON :
 #
