@@ -13,23 +13,27 @@ var jsonParser = bodyParser.json();
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
-})
-
-// POST /login gets urlencoded bodies
-app.post('/post', urlencodedParser, function(request, response) {
-    if (!request.body) return response.sendStatus(200)
-    response.send('welcome, ' + request.body.username)
-})
-
-// POST /api/users gets JSON bodies
-app.post('/json', jsonParser, function(request, response) {
-    if (!request.body) return response.sendStatus(200)
-    response.send('welcome, ' + request.body.username)
 });
 
-// POST /api/users gets JSON bodies
-app.post('/error', urlencodedParser, function(request, response) {
-    return response.sendStatus(-1)
+// POST
+app.post('/posttest', urlencodedParser, function(request, response) {
+
+    response.send('welcome, ' + request.body.username);
+});
+
+// ABORT TEST
+app.post('/aborttest', urlencodedParser, function(request, response) {
+   response.send(request.body);
+});
+// JSON POST
+app.post('/jsontest', jsonParser, function(request, response) {
+
+    response.send('welcome, ' + request.body.username);
+});
+
+//ERROR
+app.post('/errortest', urlencodedParser, function(request, response) {
+	response.status(500).send('Test - Internal Server Error');
 });
 
 app.listen(8080);

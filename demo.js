@@ -35,7 +35,7 @@
 
     function post() {
         request = ajaxme.post({
-            url: '/post',
+            url: 'posttest',
             data: 'username=Ion&senha=12456',
             success: function(data) {
                 console.log('success', data.status);
@@ -46,14 +46,34 @@
             abort: function() {
                 console.log('abort', arguments);
             },
-            loadend: function() {
-                console.log('loadend', arguments);
+            loadstart: function() {
+                console.log('loadstart', arguments);
+            },
+            progress: function(evt) {
+                console.log('progress', evt.percent);
+            }
+        });
+    };
+
+    function abort() {
+        request = ajaxme.post({
+            url: 'aborttest',
+            data: 'username=Ion&senha=12456',
+            success: function(data) {
+                console.log('success', data.status);
+            },
+            error: function() {
+                console.log('error', arguments);
+            },
+            abort: function() {
+                console.log('abort', arguments);
             },
             loadstart: function() {
                 console.log('loadstart', arguments);
             },
             progress: function(evt) {
                 console.log('progress', evt.percent);
+                request.abort();
             }
         });
     };
@@ -89,7 +109,7 @@
 
     function successWithError() {
         request = ajaxme.post({
-            url: 'error',
+            url: 'errortest',
             json: true,
             data: JSON.stringify({
                 username: 'Ion',
@@ -105,25 +125,27 @@
     };
 
 
-    btnPost.on('click', function post(evt) {
-        console.log('click post');
+    btnPost.on('click', function btnPost(evt) {
+        console.log('click btnPost');
         post();
     });
-    btnGet.on('click', function get(evt) {
-        console.log('click get');
+    btnGet.on('click', function btnGet(evt) {
+        console.log('click btnGet');
         loadJson();
     });
-    btnAbort.on('click', function get(evt) {
-        console.log('click abort');
-        request.abort();
+    btnAbort.on('click', function btnAbort(evt) {
+        console.log('click btnAbort');
+        abort();
     });
 
-    btnSubmitForm.on('click', function(evt) {
+    btnSubmitForm.on('click', function btnSubmitForm(evt) {
+        console.log('click btnSubmitForm');
         submitForm();
         evt.preventDefault()
     });
 
-    btnSuccessError.on('click', function(evt) {
+    btnSuccessError.on('click', function btnSuccessError(evt) {
+        console.log('click btnSuccessError');
         successWithError();
         evt.preventDefault()
     });

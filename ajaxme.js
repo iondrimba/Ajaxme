@@ -15,8 +15,9 @@
     'use strict';
 
     function addCallBacks(request, options) {
-        request.onload = function onload(evt) {
-            if (request.status >= 200 && request.status < 400 ) {
+        request.onload = function (evt) {
+            console.log(request );
+            if (request.status===200  ) {
                 options.success(request);
             } else {
                 request.onerror(evt);

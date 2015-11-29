@@ -10,9 +10,9 @@ describe('.get() Test', function() {
             request;
 
         request = ajaxme.get({
-            url: 'data.json',
+            url: base_url + 'data.json',
             success: function(data) {
-                success = (data.status == 200);
+                success = (data.status === 200);
                 expect(success).toEqual(true);
                 done();
             }
@@ -28,7 +28,7 @@ describe('.post() Test', function() {
             request;
 
         request = ajaxme.post({
-            url: base_url + 'post',
+            url: base_url + 'posttest',
             data: 'username=Ion&senha=12456',
             success: function(data) {
                 success = (data.status == 200);
@@ -48,7 +48,7 @@ describe('.post() JSON Test', function() {
             request;
 
         request = ajaxme.post({
-            url: base_url + 'json',
+            url: base_url + 'jsontest',
             json: true,
             data: JSON.stringify({
                 username: 'Ion',
@@ -74,7 +74,7 @@ describe('.loadstart() Test', function() {
             request;
 
         request = ajaxme.post({
-            url: base_url + 'post',
+            url: base_url + 'posttest',
             data: 'username=Ion&senha=12456',
             success: function(data) {
                 success = (data.status == 200);
@@ -99,12 +99,35 @@ describe('.succes() Error Test', function() {
             request;
 
         request = ajaxme.post({
-            url: base_url + 'error',
+            url: base_url + 'errortest',
             data: 'username=Ion&senha=12456',
             error: function(data) {
                 error = (data.status !== 200);
                 expect(error).toEqual(true);
                 done();
+            }
+        });
+    });
+
+});
+
+describe('.abort() Test', function() {
+
+    it("should call abort method", function(done) {
+        var ajaxme = AjaxMe,
+            aborted = false,
+            request;
+
+        request = ajaxme.post({
+            url: base_url + 'aborttest',
+            data: 'username=Ion&senha=12456',
+            abort: function() {
+                expect(aborted).toEqual(true);
+                done();
+            },
+            progress: function(evt) {
+                aborted = true;
+                request.abort();
             }
         });
     });
