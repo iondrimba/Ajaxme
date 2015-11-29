@@ -32,20 +32,20 @@ var ajaxme = window.AjaxMe;
 ```js
 ajaxme.get({
     url: 'data.json',
-    success: function() {
-        console.log('success', arguments);
+     success: function(XMLHttpRequest) {
+        console.log('success', XMLHttpRequest);
     },
-    error: function() {
-        console.log('error', arguments);
+    error: function(XMLHttpRequest) {
+        console.log('error', XMLHttpRequest);
     },
-    abort: function() {
-        console.log('abort', arguments);
+    abort: function(XMLHttpRequest) {
+        console.log('abort', XMLHttpRequest);
     },
-    loadstart: function() {
-        console.log('loadstart', arguments);
+    loadstart: function(XMLHttpRequest) {
+        console.log('loadstart', XMLHttpRequest);
     },
-    progress: function(evt) {
-        console.log('progress', evt.percent);
+    progress: function(XMLHttpRequest) {
+        console.log('progress', XMLHttpRequest.percent);
     }
 });
 ```
@@ -56,20 +56,20 @@ ajaxme.get({
 ajaxme.post({
     url: '/post',
     data: 'username=Ion&senha=12456',
-    success: function() {
-        console.log('success', arguments);
+    success: function(XMLHttpRequest) {
+        console.log('success', XMLHttpRequest);
     },
-    error: function() {
-        console.log('error', arguments);
+    error: function(XMLHttpRequest) {
+        console.log('error', XMLHttpRequest);
     },
-    abort: function() {
-        console.log('abort', arguments);
+    abort: function(XMLHttpRequest) {
+        console.log('abort', XMLHttpRequest);
     },
-    loadstart: function() {
-        console.log('loadstart', arguments);
+    loadstart: function(XMLHttpRequest) {
+        console.log('loadstart', XMLHttpRequest);
     },
-    progress: function(evt) {
-        console.log('progress', evt.percent);
+    progress: function(XMLHttpRequest) {
+        console.log('progress', XMLHttpRequest.percent);
     }
 });
 ```
@@ -84,19 +84,19 @@ ajaxme.post({
         username: 'Ion',
         password: '12346'
     }),
-    success: function() {
-        console.log('success', arguments);
+    success: function(XMLHttpRequest) {
+        console.log('success', XMLHttpRequest);
     },
-    error: function() {
-        console.log('error', arguments);
+    error: function(XMLHttpRequest) {
+        console.log('error', XMLHttpRequest);
     },
-    abort: function() {
-        console.log('abort', arguments);
+    abort: function(XMLHttpRequest) {
+        console.log('abort', XMLHttpRequest);
     },
-    loadstart: function() {
-        console.log('loadstart', arguments);
+    loadstart: function(XMLHttpRequest) {
+        console.log('loadstart', XMLHttpRequest);
     },
-    progress: function(evt) {
-        console.log('progress', evt.percent);
+    progress: function(XMLHttpRequest) {
+        console.log('progress', XMLHttpRequest.percent);
     }
 });
