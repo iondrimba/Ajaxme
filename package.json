@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iondrimba/ajaxme.git"
+    "url": "git+https://github.com/iondrimba/Ajaxme.git"
   },
   "keywords": [
     "Ajax",
@@ -18,9 +18,9 @@
   "author": "Ion Drimba Filho",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iondrimba/ajaxme/issues"
+    "url": "https://github.com/iondrimba/Ajaxme/issues"
   },
-  "homepage": "https://github.com/iondrimba/ajaxme#readme",
+  "homepage": "https://github.com/iondrimba/Ajaxme#readme",
   "dependencies": {},
   "devDependencies": {
     "body-parser": "^1.14.1",
