@@ -55,7 +55,7 @@ ajaxme.get({
 ```js
 ajaxme.post({
     url: '/post',
-    data: 'username=Ion&senha=12456',
+    data: 'name=Guest&age=26',
     success: function(XMLHttpRequest) {
         console.log('success', XMLHttpRequest);
     },
@@ -81,8 +81,8 @@ ajaxme.post({
     url: '/post',
     json: true,
     data: JSON.stringify({
-        username: 'Ion',
-        password: '12346'
+        name: 'Guest',
+        age: '26'
     }),
     success: function(XMLHttpRequest) {
         console.log('success', XMLHttpRequest);

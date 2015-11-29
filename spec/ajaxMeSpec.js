@@ -29,7 +29,7 @@ describe('.post() Test', function() {
 
         request = ajaxme.post({
             url: base_url + 'posttest',
-            data: 'username=Ion&senha=12456',
+            data: 'name=Guest&age=26',
             success: function(data) {
                 success = (data.status == 200);
                 expect(success).toEqual(true);
@@ -42,7 +42,7 @@ describe('.post() Test', function() {
 
 describe('.post() JSON Test', function() {
 
-    it("should match responseText with 'welcome, Ion'", function(done) {
+    it("should match responseText with 'welcome, Guest'", function(done) {
         var ajaxme = AjaxMe,
             success = false,
             request;
@@ -51,13 +51,13 @@ describe('.post() JSON Test', function() {
             url: base_url + 'jsontest',
             json: true,
             data: JSON.stringify({
-                username: 'Ion',
-                password: '12346'
+                name: 'Guest',
+                password: '26'
             }),
             success: function(data) {
                 success = (data.status == 200);
                 expect(success).toEqual(true);
-                expect(data.responseText).toEqual('welcome, Ion');
+                expect(data.responseText).toEqual('welcome, Guest');
                 done();
             }
         });
@@ -75,7 +75,7 @@ describe('.loadstart() Test', function() {
 
         request = ajaxme.post({
             url: base_url + 'posttest',
-            data: 'username=Ion&senha=12456',
+            data: 'name=Guest&age=26',
             success: function(data) {
                 success = (data.status == 200);
                 expect(started).toEqual(true);
@@ -100,7 +100,7 @@ describe('.succes() Error Test', function() {
 
         request = ajaxme.post({
             url: base_url + 'errortest',
-            data: 'username=Ion&senha=12456',
+            data: 'name=Guest&age=26',
             error: function(data) {
                 error = (data.status !== 200);
                 expect(error).toEqual(true);

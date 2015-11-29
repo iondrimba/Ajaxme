@@ -18,7 +18,7 @@ var urlencodedParser = bodyParser.urlencoded({
 // POST
 app.post('/posttest', urlencodedParser, function(request, response) {
 
-    response.send('welcome, ' + request.body.username);
+    response.send('welcome, ' + request.body.name);
 });
 
 // ABORT TEST
@@ -28,7 +28,7 @@ app.post('/aborttest', urlencodedParser, function(request, response) {
 // JSON POST
 app.post('/jsontest', jsonParser, function(request, response) {
 
-    response.send('welcome, ' + request.body.username);
+    response.send('welcome, ' + request.body.name);
 });
 
 //ERROR
