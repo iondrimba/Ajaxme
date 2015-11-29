@@ -38,13 +38,13 @@ ajaxme.get({
     error: function() {
         console.log('error', arguments);
     },
-    abort: function() {//OPTIONAL
+    abort: function() {
         console.log('abort', arguments);
     },
-    loadstart: function() {//OPTIONAL
+    loadstart: function() {
         console.log('loadstart', arguments);
     },
-    progress: function(evt) {//OPTIONAL
+    progress: function(evt) {
         console.log('progress', evt.percent);
     }
 });
@@ -62,13 +62,41 @@ ajaxme.post({
     error: function() {
         console.log('error', arguments);
     },
-    abort: function() {//OPTIONAL
+    abort: function() {
         console.log('abort', arguments);
     },
-    loadstart: function() {//OPTIONAL
+    loadstart: function() {
         console.log('loadstart', arguments);
     },
-    progress: function(evt) {//OPTIONAL
+    progress: function(evt) {
+        console.log('progress', evt.percent);
+    }
+});
+
+
+##### post JSON :
+#
+```js
+ajaxme.post({
+    url: '/post',
+    json: true,
+    data: JSON.stringify({
+        username: 'Ion',
+        password: '12346'
+    }),
+    success: function() {
+        console.log('success', arguments);
+    },
+    error: function() {
+        console.log('error', arguments);
+    },
+    abort: function() {
+        console.log('abort', arguments);
+    },
+    loadstart: function() {
+        console.log('loadstart', arguments);
+    },
+    progress: function(evt) {
         console.log('progress', evt.percent);
     }
 });

@@ -21,9 +21,6 @@
             abort: function() {
                 console.log('abort', arguments);
             },
-            loadend: function() {
-                console.log('loadend', arguments);
-            },
             loadstart: function() {
                 console.log('loadstart', arguments);
             },
@@ -94,9 +91,6 @@
             },
             abort: function() {
                 console.log('abort', arguments);
-            },
-            loadend: function() {
-                console.log('loadend', arguments);
             },
             loadstart: function() {
                 console.log('loadstart', arguments);
