@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         watch: require('./tasks/watch')().target,
         eslint: require('./tasks/eslint')().target,
         jasmine: require('./tasks/jasmine')().target,
-        coveralls: require('./tasks/jasmine')().target
+        coveralls: require('./tasks/coverall')().target
     });
 
     grunt.registerTask('travis', ['express:dev', 'jasmine', 'coveralls']);
