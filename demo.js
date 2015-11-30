@@ -12,20 +12,20 @@
     function loadJson() {
         request = ajaxme.get({
             url: 'data.json',
-            success: function() {
-                console.log('success', arguments);
+            success: function(XMLHttpRequest) {
+                console.log('success', XMLHttpRequest);
             },
-            error: function() {
-                console.log('error', arguments);
+            error: function(XMLHttpRequest) {
+                console.log('error', XMLHttpRequest);
             },
-            abort: function() {
-                console.log('abort', arguments);
+            abort: function(XMLHttpRequest) {
+                console.log('abort', XMLHttpRequest);
             },
-            loadstart: function() {
-                console.log('loadstart', arguments);
+            loadstart: function(XMLHttpRequest) {
+                console.log('loadstart', XMLHttpRequest);
             },
-            progress: function(evt) {
-                console.log('progress', evt.percent);
+            progress: function(XMLHttpRequest) {
+                console.log('progress', XMLHttpRequest.percent);
             }
         });
     };
@@ -34,20 +34,20 @@
         request = ajaxme.post({
             url: 'posttest',
             data: 'username=Ion&senha=12456',
-            success: function(data) {
-                console.log('success', data.status);
+            success: function(XMLHttpRequest) {
+                console.log('success', XMLHttpRequest.status);
             },
-            error: function() {
-                console.log('error', arguments);
+            error: function(XMLHttpRequest) {
+                console.log('error', XMLHttpRequest);
             },
-            abort: function() {
-                console.log('abort', arguments);
+            abort: function(XMLHttpRequest) {
+                console.log('abort', XMLHttpRequest);
             },
-            loadstart: function() {
-                console.log('loadstart', arguments);
+            loadstart: function(XMLHttpRequest) {
+                console.log('loadstart', XMLHttpRequest);
             },
-            progress: function(evt) {
-                console.log('progress', evt.percent);
+            progress: function(XMLHttpRequest) {
+                console.log('progress', XMLHttpRequest.percent);
             }
         });
     };
@@ -56,20 +56,20 @@
         request = ajaxme.post({
             url: 'aborttest',
             data: 'username=Ion&senha=12456',
-            success: function(data) {
-                console.log('success', data.status);
+            success: function(XMLHttpRequest) {
+                console.log('success', XMLHttpRequest.status);
             },
-            error: function() {
-                console.log('error', arguments);
+            error: function(XMLHttpRequest) {
+                console.log('error', XMLHttpRequest);
             },
-            abort: function() {
-                console.log('abort', arguments);
+            abort: function(XMLHttpRequest) {
+                console.log('abort', XMLHttpRequest);
             },
-            loadstart: function() {
-                console.log('loadstart', arguments);
+            loadstart: function(XMLHttpRequest) {
+                console.log('loadstart', XMLHttpRequest);
             },
-            progress: function(evt) {
-                console.log('progress', evt.percent);
+            progress: function(XMLHttpRequest) {
+                console.log('progress', XMLHttpRequest.percent);
                 request.abort();
             }
         });
@@ -83,20 +83,20 @@
                 username: 'Ion',
                 password: '12346'
             }),
-            success: function(data) {
-                console.log('success', data);
+            success: function(XMLHttpRequest) {
+                console.log('success', XMLHttpRequest);
             },
-            error: function() {
-                console.log('error', arguments);
+            error: function(XMLHttpRequest) {
+                console.log('error', XMLHttpRequest);
             },
-            abort: function() {
-                console.log('abort', arguments);
+            abort: function(XMLHttpRequest) {
+                console.log('abort', XMLHttpRequest);
             },
-            loadstart: function() {
-                console.log('loadstart', arguments);
+            loadstart: function(XMLHttpRequest) {
+                console.log('loadstart', XMLHttpRequest);
             },
-            progress: function(evt) {
-                console.log('progress', evt.percent);
+            progress: function(XMLHttpRequest) {
+                console.log('progress', XMLHttpRequest.percent);
             }
         });
     };
@@ -109,11 +109,11 @@
                 username: 'Ion',
                 password: '12346'
             }),
-            success: function(data) {
-                console.log('success', data);
+            success: function(XMLHttpRequest) {
+                console.log('success', XMLHttpRequest);
             },
-            error: function(data) {
-                console.log('error', data);
+            error: function(XMLHttpRequest) {
+                console.log('error', XMLHttpRequest);
             }
         });
     };
