@@ -67,8 +67,6 @@
             contentType = 'application/json';
         }
 
-        var request = new XMLHttpRequest();
-
         options['contentType'] = contentType;
 
         addCallBacks(request, options);
