@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 
             scripts: {
                 files: ['ajaxme.js', 'gruntfile.js', 'demo.js'],
-                tasks: ['eslint', 'uglify']
+                tasks: ['eslint', 'uglify', 'compress']
             },
             html: {
                 files: ['index.html'],
