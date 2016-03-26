@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('travis', ['express:dev', 'jasmine', 'coveralls', 'compress']);
-    grunt.registerTask('test', ['express:dev', 'jasmine']);
+    grunt.registerTask('test', ['eslint', 'uglify', 'compress', 'jasmine']);
     grunt.registerTask('default', ['express:dev', 'watch']);
 
 };
