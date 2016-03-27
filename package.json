@@ -4,7 +4,7 @@
   "description": "Lightweight Ajax helper",
   "main": "ajaxme.js",
   "scripts": {
-    "test": "grunt travis"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "NoJquery",
     "Http"
   ],
-  "author": "Ion Drimba Filho",
+  "author": "Ion Drimba Filho <iondrimba@gmail.com> (https://iondrimbafilho.me)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/iondrimba/ajaxme/issues"
