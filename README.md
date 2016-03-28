@@ -1,7 +1,7 @@
 # ajaxme
 Lightweight Ajax Helper
 
-[![Travis build status](https://travis-ci.org/iondrimba/ajaxme.svg?branch=master)](https://travis-ci.org/iondrimba/ajaxme) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva/branch/master?svg=true)](https://ci.appveyor.com/project/iondrimba/ajaxme/branch/master) [![Coverage Status](https://coveralls.io/repos/iondrimba/ajaxme/badge.svg?branch=master&service=github)](https://coveralls.io/github/iondrimba/ajaxme?branch=master)
+[![Travis build status](https://travis-ci.org/iondrimba/ajaxme.svg?branch=master)](https://travis-ci.org/iondrimba/ajaxme) [![Build status](https://ci.appveyor.com/api/projects/status/2p4tk082v7oyovy3?svg=true)](https://ci.appveyor.com/project/iondrimba/ajaxme) [![Coverage Status](https://coveralls.io/repos/iondrimba/ajaxme/badge.svg?branch=master&service=github)](https://coveralls.io/github/iondrimba/ajaxme?branch=master)
 
 ### Minified version: 1kb
 
